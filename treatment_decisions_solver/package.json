@@ -1,0 +1,9 @@
+{
+  "name": "treatment-decision-solver",
+  "version": "1.0.0",
+  "description": "Code excercise for solving patient treatment suggestion between several doctors",
+  "license": "MIT",
+  "dependencies": {
+    "enquirer": "^2.3.6"
+  }
+}

@@ -2,10 +2,10 @@ const { inputPrompt, getInput, processInput } = require('./inputs');
 const { pipe, shuffleArray } = require('./helpers');
 
 const maxNbrOfSatisfiedDoctors = ({ suggestionsList, nDoctors }) => {
-    let satisfiedCount = 0;
+    let satisfiedCount = 0; // Initialize number of satisfied doctors
     for (let i = 0; i < nDoctors * nDoctors; i++) {
         const newSatisfiedCount = pipe(shuffleArray, createCombination)(suggestionsList);
-        satisfiedCount = newSatisfiedCount < satisfiedCount ? satisfiedCount : newSatisfiedCount
+        if (newSatisfiedCount > satisfiedCount) satisfiedCount = newSatisfiedCount // Update number of satisfied doctors if iteration's count is higher 
     }
     return satisfiedCount
 }

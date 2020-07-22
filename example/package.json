@@ -4,6 +4,7 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "license": "MIT",
   "dependencies": {
     "react": "16.12.0",
     "react-bootstrap": "1.2.2",

@@ -5,12 +5,10 @@ const maxNbrOfSatisfiedDoctors = ({ suggestionsList, nDoctors }) => {
     let satisfiedCount = 0; // Initialize number of satisfied doctors
     for (let i = 0; i < nDoctors * nDoctors; i++) {
         const newSatisfiedCount = pipe(shuffleArray, createCombination)(suggestionsList);
-        satisfiedCount = newSatisfiedCount < satisfiedCount
-            ? satisfiedCount : newSatisfiedCount // Update number of satisfied doctors if iteration's count is higher 
+        if (newSatisfiedCount > satisfiedCount) satisfiedCount = newSatisfiedCount // Update number of satisfied doctors if iteration's count is higher 
     }
     return satisfiedCount
 }
-
 const createCombination = suggestionsList =>
     suggestionsList.reduce((acc, currentDoctor, index) => {
         const { treats, leaves } = currentDoctor;
