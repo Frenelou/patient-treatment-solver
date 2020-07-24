@@ -93,23 +93,3 @@ const askInputfromCmd = () => inputPrompt(pipe(getInput, maxNbrOfSatisfiedDoctor
 askInputfromCmd()
 
 
-const autoLaunchInput = a => pipe(getInput, maxNbrOfSatisfiedDoctors)(a)
-const basePath = '../test_input_files/';
-
-const input1 = autoLaunchInput(`${basePath}input1.txt`)
-console.log(`${input1} should be 3`);
-
-const input2 = autoLaunchInput(`${basePath}input2.txt`)
-console.log(`${input2} should be 6`);
-
-const input3 = autoLaunchInput(`${basePath}input3.txt`)
-console.log(`${input3} should be 11`);
-
-// const input4 = autoLaunchInput(`${basePath}input4.txt`)
-// console.log(`${input4} should be 20`);
-
-const input5 = autoLaunchInput(`${basePath}input5.txt`)
-console.log(`${input5} should be 18`);
-
-// const input10 = autoLaunchInput(`${basePath}input10.txt`)
-// console.log(`${input10} should be 16`);
