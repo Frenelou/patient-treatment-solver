@@ -11,8 +11,7 @@ const maxNbrOfSatisfiedDoctors = ({ suggestionsList }) => {
 }
 
 const conflictsWith = suggestions => {
-    const sortedDoctors = [...suggestions].sort((a, b) => b.compatibleWith.matches.length - a.compatibleWith.matches.length)
-    // Sort list by descending number of matches
+    const sortedDoctors = [...suggestions].sort((a, b) => b.compatibleWith.matches.length - a.compatibleWith.matches.length) // Sort list by descending number of matches
 
     const doctorsConflictsForEachMatch = sortedDoctors[0].compatibleWith.matches.map(match =>
         ({
@@ -25,8 +24,9 @@ const conflictsWith = suggestions => {
 }
 
 const getMaxSatifiedCount = suggestions => {
-    let doctors = [...suggestions]; // A clone of the suggestions list where we can remove doctors as we go
+    let doctors = [...suggestions];
     while (true) {
+
         let allConflicts = doctors.reduce((acc, curr) => [...acc, ...curr.conflicts], [])
         // A list of all conflicts that the doctor's matches have with the rest
 
@@ -35,16 +35,15 @@ const getMaxSatifiedCount = suggestions => {
         doctors = doctors.filter(e => e.id !== mostRecurringConflict);
         removeConflictFromArray(doctors, mostRecurringConflict)
 
-        allConflicts.filter(c => c !== mostRecurringConflict) // Remove most occurring conflict from list of conflicts once doctor has been eliminated
+        if (allConflicts.length === new Set(allConflicts).size) { // Final check if there are no more dupplicates in conflicts list
 
-        if (allConflicts.length === new Set(allConflicts).size) { // If there are no duplicates in allConflicts list
             let conflictsLeftCount = doctors.filter(f => allConflicts.includes(f.id)
-                && f.conflicts[0] !== undefined).length;
-            // Get number of doctors who actually still have conflicts
+                && f.conflicts[0] !== undefined).length;// Look for doctors who still have conflicts
 
-            if (conflictsLeftCount > 0) {  // If Several doctors still have conflicts
-                let nbrOfConflictsToRemove = allConflicts.length - conflictsLeftCount;
-                doctors = doctors.slice(0, doctors.length - nbrOfConflictsToRemove)
+            if (conflictsLeftCount > 0) {
+                /* If there are still conflicted doctors, it mean there is 1 last conflict. 
+                Since any doctor left in the conflict have only one conflict and that one conficted doctor's conflict will match its id, we remove both doctors to get the final number of satified doctors */
+                doctors = doctors.slice(0, doctors.length - 2)
             }
             break
         }
@@ -53,7 +52,8 @@ const getMaxSatifiedCount = suggestions => {
 
     return doctors.length;
 }
-const removeConflictFromArray = (array, number) => array.map(c => {
+
+const removeConflictFromArray = (array, number) => array.filter(c => {
     const index = c.conflicts.indexOf(number);
     if (index > -1) {
         c.conflicts.splice(index, 1);
@@ -80,16 +80,10 @@ const getDoctorsMatches = (suggestionsList, currentDoctor, id) => {
 
     return ({ doctorId: id, compatibleWith })
 }
-const hasConflicts = (treats, leaves, suggestionsTreat, suggestionLeave) => treats.some(p => suggestionLeave.includes(p)) || leaves.some(p => suggestionsTreat.includes(p))
-
-
-module.exports = {
-    maxNbrOfSatisfiedDoctors
-}
-
+const hasConflicts = (treats, leaves, suggestionsTreat, suggestionLeave) =>
+    treats.some(p => suggestionLeave.includes(p)) || leaves.some(p => suggestionsTreat.includes(p))
 
 const askInputfromCmd = () => inputPrompt(pipe(getInput, maxNbrOfSatisfiedDoctors, console.log))
 
 askInputfromCmd()
-
 
