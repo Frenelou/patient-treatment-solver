@@ -51,13 +51,19 @@ Note that you DO NOT need to provide the list of patients to treat. You DO NOT n
 
 ## 💡 Idea / Solution <a name = "idea"></a>
 
-While it is possible to accurately calculate all possible combinations of suggestions this technique quickly reaches its limit as the dataset increases exponentially with the number of doctors and patients. 
+~While it is possible to accurately calculate all possible combinations of suggestions this technique quickly reaches its limit as the dataset increases exponentially with the number of doctors and patients. 
 
 My method consists in looping over the suggestions array and comparing the first doctor's suggestions to her's peer's. At the begining of each iteration, I shuffle the list of suggestions in order to get a better sample of all the possibilities. Every time, I compare the number of doctors who agree together and put it down as the potential maximum value if it is higher than the last. 
 
 To increase further the sample size and so the accuracy of my result, I run the loop as often as the suqre number of doctors. 
 
-I admit, this solution might be sligtly slower than the first one for small datasets but this tradeof yields the expected results for the largest ones in a fraction of the time it would take to calculate all possible combinations. 
+I admit, this solution might be sligtly slower than the first one for small datasets but this tradeof yields the expected results for the largest ones in a fraction of the time it would take to calculate all possible combinations.~
+
+I compute the conflicts that each doctor has with the others. Then I loop through the doctors' list and remove the one who appears most often in the total number of conflicts until there are no more conflicts.
+
+This method is not too time consumming and works in most cases. However, it does not yield the expected method for input 5.
+I had to fallback to my initial code to create combinations from the shuffled list of doctors. I would love to know what was the expected method for future reference. 
+
 
 ## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 

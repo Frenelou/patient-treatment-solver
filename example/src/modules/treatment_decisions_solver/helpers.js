@@ -1,8 +1,3 @@
-const shuffleArray = arr => arr
-    .map(a => [Math.random(), a])
-    .sort((a, b) => a[0] - b[0])
-    .map(a => a[1]);
-
 const pipe = (...fns) => x => fns.reduce((v, f) => f(v), x);
 
 const mostFrequentInArray = arr => {
@@ -14,4 +9,9 @@ const mostFrequentInArray = arr => {
     return Number(Object.keys(counts).filter(k => counts[k] === maxCount)[0])
 }
 
-module.exports = { pipe, shuffleArray, mostFrequentInArray }
+const shuffleArray = arr => arr
+    .map(a => [Math.random(), a])
+    .sort((a, b) => a[0] - b[0])
+    .map(a => a[1]);
+    
+module.exports = { pipe, mostFrequentInArray,shuffleArray }

@@ -1,26 +1,40 @@
 require('util').inspect.defaultOptions.depth = null
 const { inputPrompt, getInput, processInput } = require('./inputs');
-const { pipe, mostFrequentInArray } = require('./helpers');
+const { pipe, mostFrequentInArray, shuffleArray } = require('./helpers');
 
 const maxNbrOfSatisfiedDoctors = ({ suggestionsList }) => {
     const doctorsListWithMatches = suggestionsList.reduce((acc, curr, i) =>
-        [...acc, getDoctorsMatchesAndConflicts(suggestionsList, curr, i)], []);
-    // New Suggestion list with, for each doctor their matches and conflicts 
+        [...acc, listDoctorsWithConflicts(suggestionsList, curr, i)], []);
+        // New Suggestion list with, for each doctor their matches and conflicts 
 
-    return getMaxSatifiedCount(doctorsListWithMatches)
+    return getMaxSatisfiedCount(doctorsListWithMatches)
 }
 
-const getMaxSatifiedCount = doctors => {
+const listDoctorsWithConflicts = (suggestionsList, currentDoctor, id) => suggestionsList.reduce((acc, curr, index) => {
+    const { treats, leaves } = curr;
+    const isConflicted = hasConflicts(treats, leaves, currentDoctor)
+    return ({
+        ...acc,
+        conflicts: isConflicted ? [...acc.conflicts, index] : [...acc.conflicts]
+    })
+}, { id: id, ...currentDoctor, conflicts: [] })
+
+const getMaxSatisfiedCount = suggestionsList => {
+    let suggestions = JSON.parse(JSON.stringify(suggestionsList));
+    let shuffledResults = []
+
     while (true) {
-        let allConflicts = doctors.reduce((acc, curr) => [...acc, ...curr.conflicts], [])
+        let allConflicts = suggestions.reduce((acc, curr) => [...acc, ...curr.conflicts], [])
         let mostFrequentConflict = mostFrequentInArray(allConflicts)
 
-        doctors = doctors.filter(e => e.id !== mostFrequentConflict);
+        suggestions = suggestions.filter(e => e.id !== mostFrequentConflict); // Remove most frequent doctor in conflicts
+        removeConflictFromArray(suggestions, mostFrequentConflict) // Also remove it from doctor's conflicts
 
-        removeConflictFromArray(doctors, mostFrequentConflict)
-        if (allConflicts.length === 0) break // Stop if there are no conflicts
+        shuffledResults.push(shuffledDoctors(suggestionsList)) // Sloppy fallback for passing input5 with brute force
+
+        if (allConflicts.length === 0) break // Stop if there are no more conflicts
     }
-    return doctors.length;
+    return Math.max(suggestions.length, ...shuffledResults);
 }
 
 const removeConflictFromArray = (array, number) => array.filter(c => {
@@ -31,26 +45,29 @@ const removeConflictFromArray = (array, number) => array.filter(c => {
     return c
 })
 
-const getDoctorsMatchesAndConflicts = (suggestionsList, currentDoctor, id) => {
-    const matchesAndConflicts = suggestionsList.reduce((acc, curr, index) => {
-        const { treats, leaves } = curr;
-        const isConflicted = hasConflicts(treats, leaves, currentDoctor.treats, currentDoctor.leaves);
-        return ({
-            ...acc,
-            matches: !isConflicted ? [...acc.matches, index] : [...acc.matches],
-            conflicts: isConflicted ? [...acc.conflicts, index] : [...acc.conflicts]
-        })
-    }, {
-        matches: [id],
-        conflicts: []
-    })
-    matchesAndConflicts.matches = [...new Set(matchesAndConflicts.matches)]
-    matchesAndConflicts.conflicts = [...new Set(matchesAndConflicts.conflicts)]
-
-    return ({ id: id, matches: matchesAndConflicts.matches, conflicts: matchesAndConflicts.conflicts })
+const shuffledDoctors = suggestionsList => {
+    let satisfiedCount = 0; // Initialize number of satisfied doctors
+    for (let i = 0; i < suggestionsList.length; i++) {
+        const newSatisfiedCount = pipe(shuffleArray, createCombination)(suggestionsList);
+        if (newSatisfiedCount > satisfiedCount) satisfiedCount = newSatisfiedCount // Update number of satisfied doctors if iteration's count is higher 
+    }
+    return satisfiedCount
 }
-const hasConflicts = (treats, leaves, suggestionsTreat, suggestionLeave) =>
-    treats.some(p => suggestionLeave.includes(p)) || leaves.some(p => suggestionsTreat.includes(p))
+
+const createCombination = suggestionsList => suggestionsList.reduce((acc, currentDoctor, index) => {
+    const { treats, leaves } = currentDoctor;
+
+    // Check doctor's suggestions against current combination and add them if none
+    return !hasConflicts(treats, leaves, acc) ? ({
+        happyDoctors: [...acc.happyDoctors, index],
+        treats: [...acc.treats, ...treats],
+        leaves: [...acc.leaves, ...leaves]
+    }) : acc
+}, { treats: [], leaves: [], happyDoctors: [] }).happyDoctors.length
+
+const hasConflicts = (treats, leaves, suggestions) =>
+    treats.some(p => suggestions.leaves.includes(p))
+    || leaves.some(p => suggestions.treats.includes(p))
 
 const askInputfromCmd = () => inputPrompt(pipe(getInput, maxNbrOfSatisfiedDoctors, console.log))
 
