@@ -25,9 +25,12 @@ const getMaxSatisfiedCount = suggestionsList => {
         let allConflicts = suggestions.reduce((acc, curr) => [...acc, ...curr.conflicts], [])
         if (allConflicts.length === 0) break // Stop if there are no more conflicts
 
-        let mostFrequentConflicts = mostFrequentInArray(allConflicts).map(c => c.id)
-        let mostFrequentConflict = JSON.parse(JSON.stringify(suggestionsList)).filter(d => mostFrequentConflicts.includes(d.id)).sort((a, b) => b.conflicts.length - a.conflicts.length)[0].id // Get most frequent conflict that has most conflicts with others
-
+        const mostFrequentConflicts = mostFrequentInArray(allConflicts).map(c => c.id)
+        const mostFrequentConflict = JSON.parse(JSON.stringify(suggestionsList))
+            .filter(d => mostFrequentConflicts.includes(d.id))
+            .sort((a, b) => b.conflicts.length - a.conflicts.length)[0].id
+        // Get most frequent conflict that has most conflicts with others
+        
         suggestions = suggestions.filter(e => e.id !== mostFrequentConflict); // Remove most frequent doctor in conflicts
         removeConflictFromArray(suggestions, mostFrequentConflict) // Also remove it from doctor's conflicts
     }
