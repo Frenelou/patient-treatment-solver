@@ -61,8 +61,8 @@ I admit, this solution might be sligtly slower than the first one for small data
 
 I compute the conflicts that each doctor has with the others. Then I loop through the doctors' list and remove the one who appears most often in the total number of conflicts until there are no more conflicts.
 
-This method is not too time consumming and works in most cases. However, it does not yield the expected method for input 5.
-I had to fallback to my initial code to create combinations from the shuffled list of doctors. I would love to know what was the expected method for future reference. 
+If several doctors appear the same number of times in the list of conflicts, I take the one that has the most conflicts of its own
+
 
 
 ## ⛓️ Dependencies / Limitations <a name = "limitations"></a>

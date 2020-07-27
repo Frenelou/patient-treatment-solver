@@ -5,13 +5,9 @@ const mostFrequentInArray = arr => {
         a[c] = (a[c] || 0) + 1;
         return a;
     }, {});
-    const maxCount = Math.max(...Object.values(counts));
-    return Number(Object.keys(counts).filter(k => counts[k] === maxCount)[0])
+    const highest = Object.keys(counts).map(k => ({ id: Number(k), count: counts[k] }))
+    const tops = highest.sort((a, b) => b.count - a.count).filter(n => n.count === highest[0].count)
+    return tops
 }
 
-const shuffleArray = arr => arr
-    .map(a => [Math.random(), a])
-    .sort((a, b) => a[0] - b[0])
-    .map(a => a[1]);
-    
-module.exports = { pipe, mostFrequentInArray,shuffleArray }
+module.exports = { pipe, mostFrequentInArray }
