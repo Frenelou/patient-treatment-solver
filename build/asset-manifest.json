@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/patient-treatment-solver/static/css/main.8cecc80a.chunk.css",
-    "main.js": "/patient-treatment-solver/static/js/main.2fe7fa4d.chunk.js",
-    "main.js.map": "/patient-treatment-solver/static/js/main.2fe7fa4d.chunk.js.map",
-    "runtime~main.js": "/patient-treatment-solver/static/js/runtime~main.59871869.js",
-    "runtime~main.js.map": "/patient-treatment-solver/static/js/runtime~main.59871869.js.map",
-    "static/js/2.7b7ea67e.chunk.js": "/patient-treatment-solver/static/js/2.7b7ea67e.chunk.js",
-    "static/js/2.7b7ea67e.chunk.js.map": "/patient-treatment-solver/static/js/2.7b7ea67e.chunk.js.map",
-    "index.html": "/patient-treatment-solver/index.html",
-    "precache-manifest.4b02e8c0be13ccaaa7a7bc339fb498cc.js": "/patient-treatment-solver/precache-manifest.4b02e8c0be13ccaaa7a7bc339fb498cc.js",
-    "service-worker.js": "/patient-treatment-solver/service-worker.js",
-    "static/css/main.8cecc80a.chunk.css.map": "/patient-treatment-solver/static/css/main.8cecc80a.chunk.css.map"
+    "main.css": "https://frenelou.github.io/patient-treatment-solver/build/static/css/main.8cecc80a.chunk.css",
+    "main.js": "https://frenelou.github.io/patient-treatment-solver/build/static/js/main.2fe7fa4d.chunk.js",
+    "main.js.map": "https://frenelou.github.io/patient-treatment-solver/build/static/js/main.2fe7fa4d.chunk.js.map",
+    "runtime~main.js": "https://frenelou.github.io/patient-treatment-solver/build/static/js/runtime~main.1ea105df.js",
+    "runtime~main.js.map": "https://frenelou.github.io/patient-treatment-solver/build/static/js/runtime~main.1ea105df.js.map",
+    "static/js/2.7b7ea67e.chunk.js": "https://frenelou.github.io/patient-treatment-solver/build/static/js/2.7b7ea67e.chunk.js",
+    "static/js/2.7b7ea67e.chunk.js.map": "https://frenelou.github.io/patient-treatment-solver/build/static/js/2.7b7ea67e.chunk.js.map",
+    "index.html": "https://frenelou.github.io/patient-treatment-solver/build/index.html",
+    "precache-manifest.8b4fd9a90ff12ea2cd2e392a14dbc63d.js": "https://frenelou.github.io/patient-treatment-solver/build/precache-manifest.8b4fd9a90ff12ea2cd2e392a14dbc63d.js",
+    "service-worker.js": "https://frenelou.github.io/patient-treatment-solver/build/service-worker.js",
+    "static/css/main.8cecc80a.chunk.css.map": "https://frenelou.github.io/patient-treatment-solver/build/static/css/main.8cecc80a.chunk.css.map"
   }
 }
