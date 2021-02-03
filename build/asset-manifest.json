@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Frenelou/patient-treatment-solver/static/css/main.8cecc80a.chunk.css",
-    "main.js": "/Frenelou/patient-treatment-solver/static/js/main.2fe7fa4d.chunk.js",
-    "main.js.map": "/Frenelou/patient-treatment-solver/static/js/main.2fe7fa4d.chunk.js.map",
-    "runtime~main.js": "/Frenelou/patient-treatment-solver/static/js/runtime~main.9b07d018.js",
-    "runtime~main.js.map": "/Frenelou/patient-treatment-solver/static/js/runtime~main.9b07d018.js.map",
-    "static/js/2.7b7ea67e.chunk.js": "/Frenelou/patient-treatment-solver/static/js/2.7b7ea67e.chunk.js",
-    "static/js/2.7b7ea67e.chunk.js.map": "/Frenelou/patient-treatment-solver/static/js/2.7b7ea67e.chunk.js.map",
-    "index.html": "/Frenelou/patient-treatment-solver/index.html",
-    "precache-manifest.bfb55eb180ff814a02b991429866811c.js": "/Frenelou/patient-treatment-solver/precache-manifest.bfb55eb180ff814a02b991429866811c.js",
-    "service-worker.js": "/Frenelou/patient-treatment-solver/service-worker.js",
-    "static/css/main.8cecc80a.chunk.css.map": "/Frenelou/patient-treatment-solver/static/css/main.8cecc80a.chunk.css.map"
+    "main.css": "/patient-treatment-solver/static/css/main.8cecc80a.chunk.css",
+    "main.js": "/patient-treatment-solver/static/js/main.2fe7fa4d.chunk.js",
+    "main.js.map": "/patient-treatment-solver/static/js/main.2fe7fa4d.chunk.js.map",
+    "runtime~main.js": "/patient-treatment-solver/static/js/runtime~main.59871869.js",
+    "runtime~main.js.map": "/patient-treatment-solver/static/js/runtime~main.59871869.js.map",
+    "static/js/2.7b7ea67e.chunk.js": "/patient-treatment-solver/static/js/2.7b7ea67e.chunk.js",
+    "static/js/2.7b7ea67e.chunk.js.map": "/patient-treatment-solver/static/js/2.7b7ea67e.chunk.js.map",
+    "index.html": "/patient-treatment-solver/index.html",
+    "precache-manifest.4b02e8c0be13ccaaa7a7bc339fb498cc.js": "/patient-treatment-solver/precache-manifest.4b02e8c0be13ccaaa7a7bc339fb498cc.js",
+    "service-worker.js": "/patient-treatment-solver/service-worker.js",
+    "static/css/main.8cecc80a.chunk.css.map": "/patient-treatment-solver/static/css/main.8cecc80a.chunk.css.map"
   }
 }

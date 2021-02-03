@@ -1,7 +1,7 @@
 {
   "name": "artog",
   "version": "1.0.0",
-  "homepage": "https://github.com/Frenelou/patient-treatment-solver",
+  "homepage": "https://frenelou.github.io/patient-treatment-solver/",
   "description": "",
   "keywords": [],
   "main": "./index.js",
@@ -23,8 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public"
   },
   "browserslist": [
     ">0.2%",
