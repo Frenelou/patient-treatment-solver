@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Frenelou/patient-treatment-solver/static/css/main.8cecc80a.chunk.css",
+    "main.js": "/Frenelou/patient-treatment-solver/static/js/main.0a78d488.chunk.js",
+    "main.js.map": "/Frenelou/patient-treatment-solver/static/js/main.0a78d488.chunk.js.map",
+    "runtime~main.js": "/Frenelou/patient-treatment-solver/static/js/runtime~main.9b07d018.js",
+    "runtime~main.js.map": "/Frenelou/patient-treatment-solver/static/js/runtime~main.9b07d018.js.map",
+    "static/js/2.8aed8f91.chunk.js": "/Frenelou/patient-treatment-solver/static/js/2.8aed8f91.chunk.js",
+    "static/js/2.8aed8f91.chunk.js.map": "/Frenelou/patient-treatment-solver/static/js/2.8aed8f91.chunk.js.map",
+    "index.html": "/Frenelou/patient-treatment-solver/index.html",
+    "precache-manifest.5eb9b0be3662dbfc8d00bd5d64555df2.js": "/Frenelou/patient-treatment-solver/precache-manifest.5eb9b0be3662dbfc8d00bd5d64555df2.js",
+    "service-worker.js": "/Frenelou/patient-treatment-solver/service-worker.js",
+    "static/css/main.8cecc80a.chunk.css.map": "/Frenelou/patient-treatment-solver/static/css/main.8cecc80a.chunk.css.map"
+  }
+}

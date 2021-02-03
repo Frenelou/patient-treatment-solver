@@ -108,7 +108,7 @@ yarn install
 
 Launch with yarn start
 ```
-yarn install
+yarn start
 ```
 
 #### Codesanbox:

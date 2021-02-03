@@ -5,8 +5,8 @@ const mostFrequentInArray = arr => {
         a[c] = (a[c] || 0) + 1;
         return a;
     }, {});
-    const highest = Object.keys(counts).map(k => ({ id: Number(k), count: counts[k] }))
-    const tops = highest.sort((a, b) => b.count - a.count).filter(n => n.count === highest[0].count)
+    const highest = Object.keys(counts).map(k => ({ id: Number(k), count: counts[k] })).sort((a, b) => b.count - a.count)
+    const tops = highest.filter(n => n.count === highest[0].count)
     return tops
 }
 
