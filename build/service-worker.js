@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Frenelou/patient-treatment-solver/precache-manifest.5eb9b0be3662dbfc8d00bd5d64555df2.js"
+  "/Frenelou/patient-treatment-solver/precache-manifest.bfb55eb180ff814a02b991429866811c.js"
 );
 
 self.addEventListener('message', (event) => {

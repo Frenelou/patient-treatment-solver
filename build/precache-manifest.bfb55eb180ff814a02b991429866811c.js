@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eaf78c96840e6d5d057f94d3340b6e98",
+    "revision": "8f01856d4ee9e653bc71af5d19437b7b",
     "url": "/Frenelou/patient-treatment-solver/index.html"
   },
   {
-    "revision": "29d55ac46462ff0e88c2",
+    "revision": "e3918840652152461a10",
     "url": "/Frenelou/patient-treatment-solver/static/css/main.8cecc80a.chunk.css"
   },
   {
-    "revision": "731863be7b2cb88e82a9",
-    "url": "/Frenelou/patient-treatment-solver/static/js/2.8aed8f91.chunk.js"
+    "revision": "d4bac34959b2d7370abc",
+    "url": "/Frenelou/patient-treatment-solver/static/js/2.7b7ea67e.chunk.js"
   },
   {
-    "revision": "29d55ac46462ff0e88c2",
-    "url": "/Frenelou/patient-treatment-solver/static/js/main.0a78d488.chunk.js"
+    "revision": "e3918840652152461a10",
+    "url": "/Frenelou/patient-treatment-solver/static/js/main.2fe7fa4d.chunk.js"
   },
   {
     "revision": "8beb08192847283531ca",

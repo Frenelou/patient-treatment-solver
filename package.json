@@ -4,9 +4,10 @@
   "homepage": "https://github.com/Frenelou/patient-treatment-solver",
   "description": "",
   "keywords": [],
-  "main": "src/index.js",
+  "main": "./index.js",
   "license": "MIT",
   "dependencies": {
+    "copyfiles": "^2.4.1",
     "react": "16.12.0",
     "react-bootstrap": "1.2.2",
     "react-dom": "16.12.0",

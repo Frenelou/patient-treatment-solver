@@ -99,17 +99,6 @@ node ./index.js
 ```
 A command prompt will ask the path of your input file and log the result in the terminal. The input must be a .txt file
 
-#### React app:
-
-Inside example, run: 
-```
-yarn install
-```
-
-Launch with yarn start
-```
-yarn start
-```
 
 #### Codesanbox:
 
@@ -117,7 +106,7 @@ Go to the [sandbox](https://codesandbox.io/s/patient-treatment-solver-1cs55). Th
 
 Codesandbox is based on visual studio code editor. You can view the files as you would in te editor.
 
-By clicking on `Tests` under thhe share button, you can see the results of the tests input I was given.
+By clicking on `Tests` under the share button, you can see the results of the tests input I was given.
 
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
